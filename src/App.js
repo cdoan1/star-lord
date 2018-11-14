@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Heatmap from './components/Heatmap';
 
 class App extends Component {
   render() {
@@ -19,9 +20,14 @@ class App extends Component {
           >
             Learn IBM Cloud Private
           </a>
-          <p>Chris Was Here</p>
-          <p>Tic-Tac-Toe</p>
-          <p>Something Else</p>
+          <div>
+            <ul>
+                <li>Heatmap 3</li>
+            </ul>
+          </div>
+          <div className="Heatmap">
+            <Heatmap />
+          </div>
         </header>
      </div>
     );

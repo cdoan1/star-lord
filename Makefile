@@ -1,6 +1,6 @@
 IMAGE_NAME = star-lord
 
-default: build
+default: test
 
 build-prod:
 	docker build -f Dockerfile-prod -t $(IMAGE_NAME):prod .
@@ -13,8 +13,13 @@ release: build-prod
 build:
 	docker build -f Dockerfile -t $(IMAGE_NAME) .
 
+.PHONY:
+stop:
+	docker stop $$(docker ps -a | grep star-lord | awk '{print $$1}') || true
+
 .PHONY: test
 test: build
+	docker stop $$(docker ps | grep star-lord | awk '{print $$1}') || true
 	docker run -d \
 	-v ${PWD}:/usr/src/app \
 	-v /usr/src/app/node_modules \
