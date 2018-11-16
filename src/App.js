@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Heatmap from './components/Heatmap';
+import DataLoader from './components/DataLoader';
 
 class App extends Component {
   render() {
@@ -18,15 +19,16 @@ class App extends Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Learn IBM Cloud Private
+            Chingu Cohort Exercise at IBM
           </a>
           <div>
             <ul>
-                <li>Heatmap 3</li>
+                <li>Heat-Map</li>
             </ul>
           </div>
           <div className="Heatmap">
             <Heatmap />
+            <DataLoader />
           </div>
         </header>
      </div>
