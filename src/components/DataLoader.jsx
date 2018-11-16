@@ -13,9 +13,10 @@ class DataLoader extends Component {
         fetch(`${dataSource}`)
         .then(response => response.json())
         .then(responseJson => {
-          console.log("+++ log: ", responseJson);
+          console.log("+++ log: ", responseJson['baseTemperature']);
+          console.log("+++ log: ", responseJson['monthlyVariance']);
           this.setState({
-            data: responseJson
+            data: responseJson['monthlyVariance']
           });
         })
         .catch(error => {
@@ -24,8 +25,13 @@ class DataLoader extends Component {
     }
 
     render() { 
-        let thing = this.state;
-        return ( <div>{JSON.stringify(thing.data)}</div> );
+        let thing = this.state.data;
+        // let block = thing.data;
+        //
+        // you have to map over thing
+        // then map over the array
+        return ( <div>{JSON.stringify(thing)}</div> );
+        // return ( <div>{thing.data["monthlyVariance"]}</div> );
     }
 }
  
